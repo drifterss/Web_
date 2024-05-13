@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .content {
+            width: 1000px;
+            height: 3000px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+
+        .backtop {
+            display: none;
+            width: 50px;
+            left: 50%;
+            margin: 0 0 0 505px;
+            position: fixed;
+            bottom: 60px;
+            z-index: 100;
+        }
+
+        .backtop a {
+            height: 50px;
+            width: 50px;
+            background: url(./images/bg2.png) 0 -600px no-repeat;
+            opacity: 0.35;
+            overflow: hidden;
+            display: block;
+            text-indent: -999em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content"></div>
+    <div class="backtop">
+        <img src="./images/close2.png" alt="">
+        <a href="javascript:;"></a>
+    </div>
+    <script>
+
+        let backtop = document.querySelector('.backtop')
+
+        let a = document.querySelector('a')
+
+        // 1、添加滚动事件
+        window.addEventListener('scroll',function(){
+            // 2、获取滚动的距离
+            let num = document.documentElement.scrollTop
+            console.log(num)
+            // 3、如果滚动距离大于500，则显示关闭按钮
+            if(num >= 500){
+                backtop.style.display = 'block'
+            }else{
+                backtop.style.display = 'none'
+            }
+        })
+
+        // 点击关闭按钮回到顶部
+        a.addEventListener('click',function(){
+            // 点击之后滚动距离设置为 0
+            document.documentElement.scrollTop = 0
+
+            // 图标隐藏
+            // backtop.style.display = 'none'
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 256px;
+            height: 256px;
+            margin: 0 auto;
+            /* display: block; */
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/2.jpg" alt="">
+    <button>关闭定时器</button>
+    <script>
+        let img = document.querySelector('img')
+        let btn = document.querySelector('button')
+        // 三秒钟之后图片消失
+        let timer = setTimeout(function(){
+            img.style.display = 'none'
+        },3000)
+
+        // 关闭定时器
+        btn.addEventListener('click',function(){
+            clearTimeout(timer)
+        })
+    </script>
+</body>
+</html>

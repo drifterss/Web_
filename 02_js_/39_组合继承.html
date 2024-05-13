@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function Person(name){
+            this.name = name
+        }
+
+        // 往构造的原型上添加公有方法
+        Person.prototype.sayHi = function(){
+            console.log('父类的你好啊！')
+        }
+
+        // 寄生组合继承
+        // 利用 Call 实现属性继承
+        // 利用 原型对象 实现 方法继承
+
+        function Student(name){
+            Person.call(this,name)      // 实现属性继承
+        }
+
+        // 通过原型继承方法
+        const prototype = Object.create(Person.prototype,{
+            construcor:{
+                value:Student       // 把原型对象的指向 指为 Student
+            }
+        })
+
+        // 创建的原型，赋值给子类原型
+        Student.prototype = prototype
+
+        const s = new Student('jj')
+        s.sayHi()
+
+        
+    </script>
+</body>
+</html>

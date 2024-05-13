@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        location对象：
+            ① location.href : 跳转页面
+            
+            ② search：获取地址属性中携带的参数
+     -->
+
+
+    <!-- 5 秒中之后跳转的页面 -->
+
+    <a href="http://www.taobao.com"><span>5</span>秒中之后跳转此页面</a>
+
+    <script>
+        let a = document.querySelector('a')
+        let num = 5
+
+        let timer = setInterval(function(){
+            num--
+            a.innerHTML = `<span>${num}</span>秒中之后跳转此页面`
+
+            if(num === 0){
+                clearInterval(timer)
+
+                // 跳转到此页面
+                location.href = "http://www.taobao.com"
+            }
+        },1000)
+    </script>
+
+</body>
+</html>

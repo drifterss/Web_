@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10">
+        幸存者、伟大的渺小、黑夜问白天...
+    </textarea>
+    <br>
+    <button class="btn" disabled>请在6秒后选择喜欢的歌曲</button>
+
+    <script>
+        // 1、获取 button
+        var btn = document.querySelector('.btn')
+        btn.disabled = true
+        // 2、设置定时器函数，time 为定时器的 id
+        let i = 6
+        let time = setInterval(function(){
+            
+            i--
+            btn.innerHTML = `请在${i}秒后选择喜欢的歌曲`
+
+            if(i <= 0){
+                clearInterval(time)
+                // 开启按钮并更换文字
+                btn.disabled = false
+                btn.innerHTML = `请选择`
+            }
+        },1000)
+
+    </script>
+</body>
+</html>

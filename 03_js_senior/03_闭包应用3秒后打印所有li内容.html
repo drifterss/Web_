@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="menu">
+        <li>幸存者</li>
+        <li>关键词</li>
+        <li>茉莉雨</li>
+        <li>醉赤壁</li>
+    </ul>
+
+    <script>
+        var lis = document.querySelector('.menu').querySelectorAll('li')
+
+        for(var i = 0;i < lis.length;i++){
+
+            // 定时器里面的函数调用了作用域之外的变量，产生了闭包
+            (function(a){
+                setTimeout(function(){
+                    console.log(lis[a].innerHTML);
+                },3000)
+            })(i)
+        }
+    </script>
+</body>
+</html>

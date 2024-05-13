@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100%;
+        }
+        .div1{
+            height: 100%;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+   
+    <button id="st">点击</button>
+    <div class="div1">nihaoa</div>
+    <script>
+        var st = document.getElementById("st")
+        // console.log(st);
+
+        st.onclick = function(){
+            localStorage.setItem('name','JJ')
+        }
+    </script>
+</body>
+</html>

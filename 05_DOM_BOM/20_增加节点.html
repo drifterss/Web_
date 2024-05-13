@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>黑夜问白天</li>
+        <li>暂时的记号</li>
+    </ul>
+
+    <script>
+
+        // 克隆节点 节点.cloneNode(bool):true则连后代一起克隆，false则只克隆本身，默认为false
+
+        // 删除节点： 父元素.removeChild(子元素) ---- 直接 dom 树里面也不含有
+
+        // 往 ul 里面增加 li,且添加再最后面
+        let ul = document.querySelector('ul')
+
+        // 1、先创建元素
+        let li = document.createElement('li')
+        li.innerHTML = '伟大的渺小'
+        li.style.color = 'red'
+
+        // 1、追加元素,加入到父元素的最后  父元素.appendChild(要追加的元素)
+        // ul.appendChild(li)
+
+        // 2、追加到某个节点的前面，ul.insertBefore(要追加的元素,某个节点)
+        ul.insertBefore(li,ul.children[1])
+
+
+    </script>
+</body>
+</html>

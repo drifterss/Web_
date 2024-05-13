@@ -1,0 +1,13 @@
+var F=function(){};
+Object.prototype.a=2
+Function.prototype.b=1
+var f=new F();
+
+console.log(F.a);
+console.log(F.b);
+
+console.log(f.a);
+console.log(f.b); // undefined
+console.log(f.__proto__===F.prototype);
+
+console.log(1 + - + + + - + 1 );    // 2

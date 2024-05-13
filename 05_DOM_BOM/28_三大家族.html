@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        div{
+            width: 200px;
+            height: 150px;
+            background: pink;
+            overflow: auto;
+            margin: 100px 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 
+        1、页面滚动事件如何添加？
+           scroll
+           监听整个页面给 window 或 document 添加
+
+        2、加载事件有哪两个?如何添加？
+            ① load：监听整个页面给 window 添加
+            ② DomContentLoaded:
+                给 document 加，当初始的 HTML 文档被完全加载和解析完成之后，DomContentLoaded被触发
+                无需等待样式表、图像等完全加载
+
+        3、offset家族?
+            获取自身元素的大小：包括自身设置的宽、高、padding、border
+            获取元素距离定位父级的左和上距离，只读属性
+
+        4、
+     -->
+
+     <div>
+        我很好我很好哈哈哈哈哈哈哈哈哈哈哈哈
+        我很好我很好哈哈哈哈哈哈哈哈哈哈哈哈
+        我很好我我很好哈哈哈哈哈哈哈哈哈哈哈哈很好哈哈哈哈哈哈哈哈哈哈哈哈
+        我很好我很好哈哈哈哈哈哈哈哈哈哈哈哈
+        我很好我很好哈哈哈哈哈哈哈哈哈哈哈哈
+        我很好我很好哈哈哈哈哈哈哈哈哈哈哈哈
+        我很好我很好哈哈哈哈哈哈哈哈哈哈哈哈
+        我很好哈哈哈哈哈哈哈哈哈哈哈哈
+        我很好哈哈哈哈哈哈哈哈哈哈哈哈
+     </div>
+
+     <script>
+        // scrollTop:获取卷去的高度
+
+        // offsetTop:获取某个盒子到顶部的距离
+
+        // client:可视区域的宽度
+
+        // 给 div 添加滚动事件
+        let div = document.querySelector('div')
+
+        div.addEventListener('scroll',function(){
+            // console.log(this.scrollTop);
+
+            // offset: 获取该元素与自己定位父元素的距离 ---- 只读属性
+            console.log(this.offsetTop);
+        })
+
+     </script>
+</body>
+</html>

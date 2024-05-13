@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+    <script>
+      // 扩展运算符可以将数组拆分成以逗号分隔的序列，但是打印出来时会没有逗号
+
+      let array = ["a", "b", "c"];
+      // ...array     'a','b','c'
+      console.log(...array); // 'a' 'b' 'c'
+      console.log("a", "b", "c"); // 'a' 'b' 'c'
+
+      // 1、扩展运算符用于数组的合并
+      let arr1 = [1, 2, 3];
+      let arr2 = [4, 5, 6];
+
+      // 方法一
+      let arr3 = [...arr1, ...arr2];
+      console.log(arr3); // [ 1, 2, 3, 4, 5, 6 ]
+
+      // 方法二
+      arr1.push(...arr2);
+      console.log(arr1); // [ 1, 2, 3, 4, 5, 6 ]
+
+      // 2、扩展运算符将伪数组转换为真正的数组
+      //  获取到的 lis 是一个伪数组
+      var lis = document.querySelectorAll("li");
+      console.log(lis);
+
+      // 把伪数组转换成真正的数组
+      var arr_lis = [...lis];
+      console.log(arr_lis);
+    </script>
+  </body>
+</html>

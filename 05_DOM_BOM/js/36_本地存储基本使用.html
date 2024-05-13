@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 通过 localStorage存储的数据永久有效 -->
+    <script>
+        // 存数据：localStorage.setItem('键','值')
+        localStorage.setItem('song','黑夜问白天')
+
+        // 获取数据：localStorage.getItem('键')
+        console.log(localStorage.getItem('song'));
+
+        // 删除数据：localStorage.removeItem('键')
+        localStorage.removeItem('song')
+
+        // 复杂数据类型需转 JSON 再进行存取，JSON数据都是双引号
+        let obj = {
+            'uname':'jj',
+            'age':18,
+            'song':'伟大的渺小'
+        }
+
+        // console.log(JSON.stringify(obj));
+        localStorage.setItem('obj',JSON.stringify(obj))
+
+
+        // 取数据，需JSON数据转换回对象  JSON.parse()
+        console.log(JSON.parse(localStorage.getItem('obj')))
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let obj = {
+            name:'jay',
+            age:15
+        }
+
+        // vue2 通过 object.defineProperty 实现获取和修改
+
+        // Object.defineProperty(obj,'name',{
+		// 		configurable:true,
+		// 		get(){ //有人读取name时调用
+		// 			return obj.name
+		// 		},
+		// 		set(value){ //有人修改name时调用
+		// 			console.log('有人修改了name属性，我发现了，我要去更新界面！')
+		// 			obj.name = value
+		// 		}
+		// 	})
+
+        // vue3
+        const obj_2 = new Proxy(obj,{
+
+            get(target,propName){
+                return Reflect.get(target,propName)
+            },
+
+            set(value){
+                Reflect.set(target,propName,value)
+            },
+
+            delete(){
+                return Reflect.deleteProperty(target,propName)
+            }
+
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var obj = {
+            name:'jj',
+            age:18
+        }
+
+        function fn(arr){
+            console.log(this);
+            console.log('在学习...');
+            console.log(arr);
+        }
+
+        // apply: 也是函数调用
+        // ① 可以改变 this 指向
+        // ② 第二个参数必须以数组的方式进行传递
+        // ③ apply 的主要应用，比如可以利用 Math.max() 求最大值等...
+        
+        fn.apply(obj,['pink'])
+        console.log(fn);
+
+
+        var arr = [1,3,2,4]
+        // 用 apply 来调用 Math.max 方法求最大值
+        var max = Math.max.apply(Math,arr)
+
+    </script>
+</body>
+</html>

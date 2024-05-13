@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    
+    <img src="./images/1.jpg" alt="">
+
+    <script>
+        // 获取元素
+        var pic = document.querySelector('img')
+        // console.log(pic);
+
+        // 获取随机数
+        function getRandom(min,max){
+            return Math.floor(Math.random()*(max-min+1) + min)
+        }
+
+        var random = getRandom(1,5)
+
+        // 修改元素属性
+        pic.src = `./images/${random}.jpg`
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <div>4_</div>
+    <div>5_</div>
+    <div class="last">6_</div>
+
+    <script>
+        // 1、querySelector: 只能获取第一个元素
+        var li_3 = document.querySelector('ul li:last-child')
+        console.log(li_3);
+
+        // 默认获取的是第一个
+        var div = document.querySelector('div')
+        console.log(div);
+
+        var div_6 = document.querySelector('.last')
+        console.log(div_6);
+
+        // 2、获取多个元素-----返回的是一个伪数组
+        var lis = document.querySelectorAll('ul li')
+        console.log(lis);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function Father(uname,age){
+            // this: 指向父构造函数的实例
+            this.uname = uname
+            this.age = age
+        }
+
+        // 存放一些共有的方法
+        Father.prototype.money = function(){
+            console.log('在赚钱...');
+        }
+
+        function Son(uname,age,score){
+            // this: 指向子构造函数的实例
+
+            Father.call(this,uname,age) // 把父类的 this 改成指向子构造函数的实例，实现属性继承
+
+            this.score = score
+        }
+
+        Son.prototype = new Father() // 此时会修改 Son 构造函数的指向，需手动指回来
+        Son.prototype.constructor = Son
+
+        // 此时 Son 原型上的方法不会添加到 Father 的原型上
+        Son.prototype.exam = function(){
+            console.log('在考试...');
+        }
+
+        // 验证继承性
+        var son = new Son('jj',18,100)
+        console.log(son);
+
+        console.log(Father.prototype);
+        console.log(Son.prototype.constructor);
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const PubSub = {
+            message: {},
+
+            publish(type,data) {
+                if(!this.message[type]) return
+
+                this.message[type].forEach(element => {
+                    // console.log(element);
+                    element(data)
+                });
+            },
+
+            subcribe(type,cb) {
+                if(!this.message[type]){
+                    this.message[type] = [cb]
+                }else{
+                    this.message[type].push(cb)
+                }
+            },
+        }
+
+        // 订阅事件
+        function testA(data) {
+            console.log('testA',data);
+        }
+
+        function testB(data) {
+            console.log('testB',data);
+        }
+
+        PubSub.subcribe('A',testA)
+        PubSub.subcribe('A',testB)
+
+        PubSub.subcribe('B',testB)
+
+    </script>
+</body>
+
+</html>

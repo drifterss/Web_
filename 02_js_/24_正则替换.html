@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button></button>
+    <div></div>
+
+    <script>
+        var textarea = document.querySelector('textarea')
+        var btn = document.querySelector('button')
+        var div = document.querySelector('div')
+
+        btn.onclick = function(){
+
+            // g 表示全局匹配
+            // i 表示忽略大小写
+
+            var new_value = textarea.value.replace(/激情/g,'***')
+            div.innerHTML = new_value
+        }
+    </script>
+</body>
+</html>

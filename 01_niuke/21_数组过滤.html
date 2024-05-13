@@ -1,0 +1,76 @@
+<!-- 要求根据下拉框选中的条件变换重新渲染列表中展示的商品，且只展示符合条件的商品。
+注意：
+1. 必须使用DOM0级标准事件（onchange）
+2. 建议使用ES6的filter方法 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <select name="" id="">
+        <option value="0">请选择销量范围</option>
+        <option value="1">&lt100</option>
+        <option value="2">100~500</option>
+        <option value="3">&gt500</option>
+    </select>
+    <ul>
+        <li>牛客logo马克杯</li>
+        <li>无盖星空杯</li>
+        <li>老式茶杯</li>
+        <li>欧式印花杯</li>
+    </ul>
+
+    <script>
+        var cups = [
+            { type: 1, price: 100, color: 'black', sales: 60, name: '牛客logo马克杯' },
+            { type: 2, price: 40, color: 'blue', sales: 100, name: '无盖星空杯' },
+            { type: 4, price: 60, color: 'green', sales: 200, name: '老式茶杯' },
+            { type: 3, price: 50, color: 'green', sales: 600, name: '欧式印花杯' }
+        ]
+        var select = document.querySelector('select');
+        var ul = document.querySelector('ul');
+        // 补全代码
+        // 1、创建重渲染函数，每 ‘select’ 节点的 onchange 事件触发时，会调用该函数重新渲染 ul 中的内容
+        // 2、给 ‘select’ 节点添加 onchange 事件，每当事件触发时，对 ‘select’节点值进行判断，
+        //    对 cup 数组重新排序并调用重渲染函数   
+
+
+        select.onchange = function () {
+            ul.innerHTML = ''
+            switch (parseInt(this.value)) {
+                case 1:
+                    var new_arr = cups.filter(value => {
+                        return value.sales > 0 && value.sales < 100
+                    })
+                    break
+                case 2:
+                    var new_arr = cups.filter(value => {
+                        return value.sales >= 100 && value.sales < 500
+                    })
+                    break
+                case 3:
+                    var new_arr = cups.filter(value => {
+                        return value.sales > 500
+                    })
+                    break
+            }
+            fillContent(new_arr)
+        }
+
+        function fillContent(array){
+            str = ''
+            for(var i = 0;i < array.length;i++){
+                str += `<li>${array[i].name}</li>`
+            }
+            ul.innerHTML = str
+        }
+
+
+    </script>
+</body>
+
+</html>

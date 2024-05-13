@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            display: flex;
+            width: 200px;
+            height: 40px;
+        }
+
+        .box span {
+            flex: 1;
+            width: 50px;
+            height: 40px;
+        }
+
+        .song {
+            width: 150px;
+            height: 40px;
+            flex: 1;
+        }
+
+        .btn {
+            width: 200px;
+            height: 40px;
+        }
+
+        button {
+            display: inline-block;
+            width: 80px;
+            height: 40px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>随机点歌</h2>
+    <div class="box">
+        <span>歌名：</span>
+        <div class="song">请开始</div>
+    </div>
+    <div class="btns">
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </div>
+
+    <script>
+        var arr = ['醉赤壁', '红尘客栈', '红颜如霜', '兰亭序', '茉莉雨']
+
+        // 获取随机数
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        // 获取事件源即 DOM 对象
+        var song = document.querySelector('.song')
+        var start = document.querySelector('.start')
+        var end = document.querySelector('.end')
+
+        // 定义全局变量 timer
+        var timer = 0
+        var num
+
+        // 添加监听事件，一点击开始按钮 歌曲快速滚动（开启定时器）
+        start.addEventListener('click',function(){
+            timer = setInterval(function(){
+                num = getRandom(0,arr.length - 1)
+                song.innerHTML = arr[num]
+            },30)
+
+            // 如果到了最后一个，则禁止两个按钮
+            if(arr.length === 1){
+                start.disabled = true
+                end.disabled = true
+            }
+        })
+
+        // 点击结束按钮，则停止滚动（关闭定时器）
+        end.addEventListener('click',function(){
+            clearInterval(timer)
+
+            // 从数组中删除该歌曲
+            arr.splice(num,1)
+
+        })
+
+    </script>
+</body>
+
+</html>

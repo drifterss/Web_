@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pink{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button class="pink">1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+
+    <script>
+        // 获取全部按钮
+        var btns = document.querySelectorAll('button')
+
+        // 每个按钮都绑定注册事件
+        for(let i = 0;i < btns.length;i++){
+            btns[i].addEventListener('click',function(){
+                // 方式一：干掉所有人
+                // for(let j = 0;j < btns.length;j++){
+                //     btns[j].classList.remove('pink')
+                // }
+
+                // 方式二：找到那个有的，再移除
+                document.querySelector('.pink').classList.remove('pink')
+
+                // 复活自己
+                this.classList.add('pink')
+            })
+        }
+
+    </script>
+</body>
+</html>

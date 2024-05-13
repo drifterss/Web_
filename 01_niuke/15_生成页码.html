@@ -1,0 +1,30 @@
+<!-- 要求根据参数动态生成"li"标签页码并插入"ul"标签下。要求如下：
+1. "allItem"为总数据项个数，"pageItem"为每页的数据项个数
+2. "li"标签内容为当前页码数，页码从1开始 -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	<ul id="ul">
+            
+        </ul>
+        <script type="text/javascript">
+            const _createPage = (allItem, pageItem) => {
+                // 补全代码
+
+                let pageNumber = Math.ceil(allItem / pageItem)
+
+                for(let i = 1;i <= pageNumber;i++){
+                    var li = document.createElement('li')
+                    li.innerHTML = i
+                    ul.append(li)
+                }
+            }
+
+            _createPage(7,1)
+        </script>
+    </body>
+</html>

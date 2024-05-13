@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // extends:实现继承
+        // super: 调用父类构造函数
+
+        class Person {
+            name
+            constructor(name) {
+                this.name = name
+            }
+
+            sayHi() {
+                console.log('父类的sayHi方法');
+            }
+        }
+
+        class Student extends Person {
+            age
+            constructor(name, age) {
+                // 调用父类的构造函数
+                super(name)
+
+                this.age = age
+            }
+
+            // 就近原则
+            sayHi() {
+                console.log('子类的sayHi方法');
+            }
+        }
+
+        const p = new Student('jj', 18)
+
+        console.log(p.age)
+
+        console.log(p.sayHi())
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 40px;
+            border: 1px solid pink;
+
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div>开始点歌趴</div>
+    <button>随机点歌</button>
+
+    <script>
+        var arr = ['醉赤壁','红尘客栈','红颜如霜','兰亭序','茉莉雨']
+
+        var div = document.querySelector('div')
+        var btn = document.querySelector('button')
+
+        // 获取随机数
+        function getRandom(min,max){
+            return Math.floor(Math.random()*(max-min+1) + min)
+        }
+
+        // 添加监听事件
+        btn.addEventListener('click',function(){
+
+            let num = getRandom(0,arr.length - 1)
+            div.innerHTML = arr[num]
+
+            // 点完之后从数组当中删除这首歌
+            arr.splice(num,1)
+
+            // 如果没有歌曲了，即数组长度为 0，则禁用按钮
+            if(arr.length === 0){
+                btn.disabled = true
+            }
+
+        })
+    </script>
+</body>
+</html>

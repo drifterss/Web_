@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+</head>
+<body>
+    <ul>
+        <li>第一个1</li>
+        <li>第一个2</li>
+        <li>第一个3</li>
+        <li>第一个4</li>
+        <li>第一个5</li>
+    </ul>
+    <!-- 
+        事件委托：
+                优点：给父元素加事件
+                原理：利用事件冒泡的特点，给父元素添加事件，子元素可以触发
+                实现：事件对象.target 可以获得真正触发事件的对象
+     -->
+     <script>
+        let ul = document.querySelector('ul')
+
+        ul.addEventListener('click',function(e){
+            // alert('hello')
+            // console.log(e.target);
+            e.target.style.color = 'pink'
+        })
+     </script>
+</body>
+</html>

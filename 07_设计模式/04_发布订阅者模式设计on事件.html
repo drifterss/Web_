@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button class="btn1">注册事件</button>
+        <button class="btn2">触发事件</button>
+
+    </div>
+
+    <script>
+
+        class Pubsub {
+
+            // 1、定义一个对象保存 事件名 和 对应的回调函数
+            #handler = {
+                // 事件名：[回调函数1，回调函数2]
+            }
+
+            // 注册事件
+            $on(event, callback) {
+                if (this.#handler[event] === undefined) {
+                    this.#handler[event] = []
+                } 
+                // 往对应的事件当中添加回调函数
+                this.#handler[event].push(callback)
+                
+                // console.log(this.#handler[event]);
+            }
+
+
+            // 触发事件
+            $emit(event, ...args) {
+                // 保存回调函数数组
+                const funcs = this.#handler[event] || []
+                // console.log(funcs);
+                funcs.forEach((callback) => {
+                    callback(...args)
+                })
+            }
+
+            // 清空事件
+            $off(event){
+                this.#handler[event] = undefined
+            }
+
+            // once: 执行一次后就不能再执行了
+            $once(event,callback){
+                // 先注册，触发，在关闭
+                this.$on(event,(...args)=>{
+                    callback(...args)
+
+                    this.$off(event)
+                })
+            }
+
+        }
+
+        const pubsub = new Pubsub()
+
+        document.querySelector('.btn1').addEventListener('click',  () => {
+            pubsub.$on('event1', () => {
+                console.log('我是注册的第一个事件');
+            })
+
+            pubsub.$on('event2', (name,info) => {
+                console.log('我是注册的第二个事件' + name + info);
+            })
+        })
+
+        document.querySelector('.btn2').onclick = function () {
+
+            // 调用第一个注册的事件
+            pubsub.$emit('event1')
+
+            // 调用第二个的注册事件
+            pubsub.$emit('event2','JJ','孤独娱乐')
+
+        }
+
+    </script>
+</body>
+
+</html>

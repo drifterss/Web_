@@ -1,0 +1,96 @@
+<!-- 1. 当点击"-"按钮时，商品数量减1
+2. 当点击"+"按钮时，商品数量加1
+3. 每当点击任意按钮时，购物面板中相关信息必须同步更新
+注意：
+1. 必须使用DOM0级标准事件（onclick） -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	<table>
+            <thead>
+                <caption>
+                    商品
+                </caption>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>炸鸡</td>
+                    <td>28元</td>
+                    <td><button id="zjtaiduola">-</button></td>
+                    <td><span id="zjsl">0</span></td>
+                    <td><button id="zjtaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>可乐</td>
+                    <td>5元</td>
+                    <td><button id="kltaiduola">-</button></td>
+                    <td><span id="klsl">0</span></td>
+                    <td><button id="kltaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>总价：</td>
+                    <td><span id="total">0</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <script type="text/javascript">
+            // 补全代码
+            var z_sub = document.querySelector('#zjtaiduola')
+            var z = document.querySelector('#zjsl')
+            var z_add = document.querySelector('#zjtaishaola')
+
+            var k_sub = document.querySelector('#kltaiduola')
+            var k = document.querySelector('#klsl')
+            var k_add = document.querySelector('#kltaishaola')
+
+            var total = document.querySelector('#total')
+
+            function total_(z,k){
+                total.innerHTML = (28*parseInt(z)) + (5*parseInt(k))
+
+                // return total_.innerHTML
+            }
+
+            z_add.onclick = function(){
+                z.innerHTML = parseInt(z.innerHTML) + 1
+
+                total_(z.innerHTML,k.innerHTML)
+            }
+            z_sub.onclick = function(){
+                if(parseInt(z.innerHTML) <= 0){
+                    alert('对不起，该商品不能在降价了!')
+                }else{
+                    z.innerHTML = parseInt(z.innerHTML) - 1
+                }
+                
+                total_(z.innerHTML,k.innerHTML)
+            
+            }
+
+            k_add.onclick = function(){
+                k.innerHTML = parseInt(k.innerHTML) + 1
+                total_(z.innerHTML,k.innerHTML)
+            }
+            k_sub.onclick = function(){
+                if(parseInt(k.innerHTML) <= 0){
+                    alert('对不起，该商品不能在降价了!')
+                }else{
+                    k.innerHTML = parseInt(k.innerHTML) - 1
+                }
+                total_(z.innerHTML,k.innerHTML)
+            }
+
+            
+
+
+
+
+
+        </script>
+    </body>
+</html>

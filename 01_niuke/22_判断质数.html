@@ -1,0 +1,61 @@
+<!-- 要求在Number对象的原型对象上添加"_isPrime"函数，
+  该函数判断调用的对象是否为一个质数，是则返回true，否则返回false。  -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 补全代码
+        function _isPrime() {
+            // 方法一： 
+            //     var count = 0
+            //     var n = prompt("请输入一个正整数")
+
+            //     if (n <= 0) {
+            //         return false
+            //     } else {
+            //         for (var i = 2; i <= n; i++) {
+            //             if (n % i == 0) {
+            //                 count++
+            //             }
+            //         }
+            //         if (count > 1 || count == 0) {
+            //             return false
+            //         } else {
+            //             return true
+            //         }
+            //     }
+            // }
+
+            var num, i;
+            num = parseInt(prompt("输入所需判断的整数："));
+            if (num < 2) {
+                return false
+            } else if (num == 2) {
+                return false
+            } else {
+                for (i = 2; i < num; i++) {
+                    if (num % i == 0) {
+                        //alert("不是质数");
+                        break;
+                    }
+                }
+                if (i >= num) {								//表达二
+                    return true
+                } else {
+                    return false
+                }
+            }
+        }
+
+
+            console.log(_isPrime(4));
+    </script>
+</body>
+
+</html>

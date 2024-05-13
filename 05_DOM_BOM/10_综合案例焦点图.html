@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .tip {
+            margin-left: 80px;
+
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img class='pic' src="./images/1.jpg" alt="">
+        <div class="tip">
+            <h3>伟大的渺小</h3>
+        </div>
+    </div>
+
+    <script>
+        let data = [
+            {
+                imgSrc: './images/1.jpg',
+                text: '伟大的渺小'
+            },
+            {
+                imgSrc: './images/2.jpg',
+                text: '黑夜问白天'
+            },
+            {
+                imgSrc: './images/3.jpg',
+                text: '幸存者'
+            },
+            {
+                imgSrc: './images/4.jpg',
+                text: '交换余生'
+            },
+            {
+                imgSrc: './images/5.jpg',
+                text: '关键词'
+            },
+        ]
+
+        var img_ = document.querySelector('.pic')
+        var text = document.querySelector('h3')
+
+        // 获取图片的张数
+        let i = 0
+
+        // 开启定时器
+        let time = setInterval(function () {
+
+            i++
+            console.log(i);
+            // 修改图片的 src 属性
+            img_.src = data[i].imgSrc
+
+            // 修改图片下方的文字
+            text.innerHTML = data[i].text
+
+            // 无缝衔接
+            if(i === data.length - 1){
+                i = -1
+            }
+
+        }, 1000)
+
+
+    </script>
+</body>
+
+</html>

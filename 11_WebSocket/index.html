@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <ul></ul>
+        <input type="text">
+        <button>点我发消息</button>
+    </div>
+
+    <script>
+
+        const ws = new WebSocket('ws://localhost:8080')
+
+        ws.addEventListener('open',function(event){
+            console.log('客户端连接成功');
+        })
+
+        let input = document.querySelector('input')
+        let button = document.querySelector('button')
+        let ul = document.querySelector('ul')
+
+        // 通过 ws.send() 向服务端发送消息
+        button.addEventListener('click',function(){
+            
+            if(input.value){
+                ws.send(input.value)
+                input.value = ' '
+            }
+        })
+
+        // 监听服务端返回来的信息
+        ws.addEventListener('message',(e)=>{
+            let li = document.createElement('li')
+            li.innerText = e.data
+            ul.appendChild(li)
+        })
+    </script>
+</body>
+</html>

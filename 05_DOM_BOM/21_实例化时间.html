@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 300px;
+            height: 50px;
+            border: 1xp solid pink;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+    <script>
+
+        // 1、获取当前时间
+        var now_time = new Date()
+        console.log(now_time)
+
+        // // 获取年月日
+        // console.log(now_time.getFullYear())
+        // console.log(now_time.getMonth() + 1)
+        // console.log(now_time.getDate())
+
+        // // 获取时分秒
+        // console.log(now_time.getHours())
+        // console.log(now_time.getMinutes())
+        // console.log(now_time.getSeconds())
+
+        // // 获取星期 0~6
+        // console.log(now_time.getDay())
+
+
+        // 2、获取指定时间
+        var time = new Date('2022-10-25 09:00:00')
+        console.log(time);
+
+
+        // 自动显示时间
+        let arr = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+
+        let div = document.querySelector('div')
+
+        // 先调用，就可以清除 1s 的空白期
+        getTime()
+
+        setInterval(getTime,1000)
+
+        function getTime(){
+            var now_time = new Date()
+            // console.log(now_time)
+
+            // 获取年月日
+            let year = now_time.getFullYear()
+            let month = now_time.getMonth() + 1
+            let day = now_time.getDate()
+
+            let hour = now_time.getHours()
+            let minute = now_time.getMinutes()
+            let second = now_time.getSeconds()
+
+            let zhou = now_time.getDay()
+
+            div.innerHTML = `${year}年${month}月${day}日 ${hour}:${minute}:${second} ${arr[zhou]}`
+        }
+
+    </script>
+
+</body>
+
+</html>

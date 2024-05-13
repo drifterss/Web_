@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: inline-block;
+            width: 150px;
+            height: 30px;
+            border: 1px solid pink;
+            line-height: 30px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    
+    被抽中的歌曲：<div></div>
+
+    <script>
+        var arr = ['醉赤壁','红城客栈','红颜如霜','兰亭序','茉莉雨']
+
+        function getRandom(min,max){
+            var random = Math.random()*(max - min + 1) + min
+            return Math.floor(random)
+        }
+
+        // 获取元素
+        var div = document.querySelector('div')
+
+        var song = getRandom(0,arr.length - 1)
+        div.innerHTML = arr[song]
+
+        // 得到之后再删除这首歌
+        arr.splice(song,1)      // 改变原数组
+        console.log(arr);
+    </script>
+</body>
+</html>

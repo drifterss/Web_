@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+</style>
+<body>
+    <img src="./images/right.png" alt="">
+
+    <!-- 
+        通过事件对象获取鼠标的移动坐标赋值给图片的左边距与上边距
+     -->
+
+     <script>
+        let img = document.querySelector('img')
+
+        document.addEventListener('mousemove',function(e){
+            // console.log(e.pageX);
+            // console.log(e.pageY);
+            img.style.left = e.pageX + 'px'
+            img.style.top = e.pageY + 'px'
+
+        })
+     </script>
+</body>
+</html>

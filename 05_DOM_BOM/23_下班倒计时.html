@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .countdown {
+      margin: 0 auto;
+      width: 240px;
+      height: 305px;
+      text-align: center;
+      line-height: 1;
+      color: #fff;
+      background-color: brown;
+      /* background-size: 240px; */
+      /* float: left; */
+      overflow: hidden;
+    }
+
+    .countdown .next {
+      font-size: 16px;
+      margin: 25px 0 14px;
+    }
+
+    .countdown .title {
+      font-size: 33px;
+    }
+
+   
+
+    .countdown .tips {
+      margin-top: 60px;
+      font-size: 23px;
+    }
+
+    .countdown small {
+      font-size: 17px;
+    }
+
+    .countdown .clock {
+      width: 142px;
+      margin: 18px auto 0;
+      overflow: hidden;
+    }
+
+    .countdown .clock span,
+    .countdown .clock i {
+      display: block;
+      text-align: center;
+      line-height: 34px;
+      font-size: 23px;
+      float: left;
+    }
+
+    .countdown .clock span {
+      width: 34px;
+      height: 34px;
+      border-radius: 2px;
+      background-color: #303430;
+    }
+
+    .countdown .clock i {
+      width: 20px;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="countdown">
+    <p class="next">今</p>
+    <p class="title">倒计时</p>
+    <p class="day">剩1天</p>
+    <p class="clock">
+      <span id="hour">00</span>
+      <i>:</i>
+      <span id="minutes">25</span>
+      <i>:</i>
+      <span id="scond">20</span>
+    </p>
+    <p class="tips">
+      现在是18:30:00
+    </p>
+  </div>
+
+  <script>
+    // 获取元素
+    let next = document.querySelector('.next')
+    let tips = document.querySelector('.tips')
+
+    let day_ = document.querySelector('.countdown .day')
+    // console.log(day_);
+    let clock = document.querySelector('.clock')
+
+
+
+    // 获取当前的时间
+    getNowTime()
+    setInterval(getNowTime, 1000)
+    function getNowTime() {
+      // 获取当前时间
+      // 1、获取当前时间戳(毫秒) ----- 转换成秒
+      let now_time = +new Date()
+      // console.log(second);
+
+      let now = new Date()
+
+      let now_year = now.getFullYear()
+      let month = now.getMonth() + 1
+      let day = now.getDate()
+      let hour = now.getHours()
+      let minute = now.getMinutes()
+      let second = now.getSeconds()
+
+      hour = hour < 10 ? '0' + hour : hour
+      minute = minute < 10 ? '0' + minute : minute
+      second = second < 10 ? '0' + second : second
+
+      next.innerHTML = `今天是${now_year}年${month}月${day}日`
+      tips.innerHTML = `现在是${hour}:${minute}:${second}`
+
+      // 获取目标时间戳
+      let target = +new Date('2022-11-25 09:00:00')
+
+      // 获取差值
+      let distance = (target - now_time) / 1000
+      // console.log(distance);
+
+      // 转换成天数和时分秒
+      let day_s = parseInt(distance / 60 / 60 / 24)
+      console.log(day_s);
+      let hour_ = parseInt(distance / 60 / 60 % 24)
+      // console.log(hour_);
+      let minute_ = parseInt(distance / 60 % 60)
+      let second_ = parseInt(distance % 60)
+
+      day_s = day_s< 10 ? '0' + day_s : day_s
+      hour_ = hour_ < 10 ? '0' + hour_ : hour_
+      minute_ = minute_ < 10 ? '0' + minute_ : minute_
+      second_ = second_ < 10 ? '0' + second_ : second_
+
+      day_.innerHTML = `剩${day_s}天`
+
+      clock.innerHTML = `
+<span id="hour">${hour_}</span>
+<i>:</i>
+<span id="minutes">${minute_}</span>
+<i>:</i>
+<span id="scond">${second_}</span>
+`
+
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class='triangle'></div>
+
+
+    <script>
+
+        function Star(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+
+        // Star.prototype.sing = function () {
+        //     console.log('在唱歌...');
+        // }
+        
+        // 原型对象(prototype)重新赋值后需手动利用 constructor 属性指回原来的构造函数
+        Star.prototype = {
+            // 利用 constructor 属性指回原来的构造函数
+            constructor:Star,
+            sing:function(){
+                console.log('在唱歌...');
+            },
+            dance:function(){
+                console.log('在跳舞...');
+            }
+        }
+
+        var jj = new Star('jj', 37)
+        var jay = new Star('jay', 40)
+
+
+        // 原型对象 和 对象原型中都默认含有一个 constructor(构造函数)，指回构造函数本身,记录对象引用哪个构造函数
+        console.log(Star.prototype.constructor)
+        console.log(jj.__proto__.constructor)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Div Layout Example</title>
+    <style>
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+        
+      }
+      .father{
+        position: relative;
+        background-color: gray;
+        height: 600px;
+        width: 100%;
+      }
+      .div1{
+        background-color: pink;
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        bottom: 0px;
+      
+      }
+      .div2{
+        background-color: red;
+        width: 100%;
+        /* height: 100%; */
+        top: 0px;
+        bottom: 200px;
+        position: absolute;
+      }
+
+
+      /* .div1{
+        height: 66px;
+        width: 100%;
+        background-color: pink;
+      }
+
+      .div2{
+        width: 100%;
+        position: absolute;
+        top:66px;
+        background-color: red;
+        bottom: 0px;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="div1"></div>
+      <div class="div2"></div>
+    </div>
+  </body>
+</html>

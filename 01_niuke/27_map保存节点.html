@@ -1,0 +1,23 @@
+<!-- 要求将页面中的"p"标签以键名的形式保存在Map对象中，键名所对应的键值为该"p"标签的文字内容。 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	<p>1</p>
+        <script type="text/javascript">
+            const _elementKey = () => {
+                // 补全代码
+                var map = new Map()
+                var p_ = document.querySelector('p')
+
+                map.set(p_,p_.innerHTML)
+
+                return map
+            }
+
+            console.log(_elementKey());
+        </script>
+    </body>
+</html>

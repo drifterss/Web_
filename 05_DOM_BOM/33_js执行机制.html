@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        异步任务：有回调函数等
+                包含普通事件、定时器以及资源加载
+
+        JS执行机制：
+            ① 先执行执行栈中的同步任务
+
+            ② 异步任务放入任务队列中
+
+            ③ 一旦执行栈中的同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，
+              于是被读取的异步任务结束等待状态，进入执行栈，开始执行
+     -->
+    <script>
+        console.log(1)
+
+        setTimeout(function(){
+            console.log(5);
+        },3000)
+
+        console.log(2)
+
+
+        // 输出结果为 1 2 5 
+    </script>
+</body>
+</html>

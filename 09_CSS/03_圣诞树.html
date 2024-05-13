@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 留下想要指定方向相反的方向设定（三角形） */
+        .topbranch{
+            width: 0;
+            height: 0;
+            border-top: 100px solid transparent;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 100px solid green;
+
+            /* 让小三角形脱离文档流 */
+            float: left;
+            margin-left: 100px;
+        }
+        .middleBranch{
+            width: 0;
+            height: 0;
+            border-top: 200px solid transparent;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-bottom: 200px solid green;
+
+           
+        }
+        .base{
+            width: 70px;
+            height: 200px;
+            background-color: gray;
+
+            margin-left: 165px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbranch"></div>
+    <div class="middleBranch"></div>
+    <div class="base"></div>
+
+    <script>
+        // let n = 3
+        // let sum = 1
+        // for(let i = 3;i > 0;i--){
+        //     sum = sum * i
+            
+        // }
+        // return sum;
+
+        // let s = 'hello'
+        // let obj = {}
+        // for(let i = 0;i < s.length;i++){
+        //     if(obj[s[i]]){
+        //         obj[s[i]] += 1
+        //     }else{
+        //         obj[s[i]] = 1
+        //     }
+        // }
+        // console.log(obj);
+
+        // let arr = [5,3,6,2,4]
+        // let len = arr.length
+
+        // for(let i = 0;i < len;i++){
+        //     for(j = i+ 1;j < len;j++){
+        //         if(arr[i] < arr[j]){
+        //             let t = arr[i]
+        //             arr[i] = arr[j]
+        //             arr[j] = t
+        //         }
+        //     }
+        // }
+        // // console.log(arr);
+        // return arr
+
+        // console.log('hello'.toUpperCase());
+
+        // let newString = ''
+        // let str = 'hello'
+
+        // for(let i = 0;i < str.length;i++){
+        //     // 字符串为小写字母
+        //     if(str[i].charCodeAt() >= 97 && str[i].charCodeAt() <= 122){
+        //         newString += String.fromCharCode(str[i].charCodeAt() - 32)
+        //     }else{
+        //         newString += str[i]
+        //     }
+        // }
+        // // console.log(newString);
+        // return newString
+
+        // let str = '  hello o  '
+        // console.log('@'+str.trim())
+        // console.log(str.trim());
+
+        let arr = [5,3,6,2,4]
+        console.log(Math.max(...arr));
+
+        // 某字符串是否包含数字
+        // for(let i in string){
+        //     if(!isNaN(i)){
+        //         // 包含
+        //         return true
+        //     }else{
+        //         return false
+        //     }
+        // }
+
+        // return Array.from(string).some(el => isNaN(el) === false)
+    </script>
+</body>
+</html>

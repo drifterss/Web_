@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var name = 'This Window'
+
+        // 题 1 ：返回结果是什么？是否产生了闭包？
+        var object = {
+            name:'My Object',
+            getNameFun:function(){
+                return function(){
+                    return this.name
+                }
+            }
+        }
+        // console.log(object.getNameFun()());
+
+        // 1 ===> 相当于   object.getNameFun()返回一个匿名函数 , ()--匿名函数来执行
+        var f = object.getNameFun()     // f 相当于一个匿名函数，此时 this 指向 window
+          
+        console.log(f());   // 此时没有产生闭包，输出为 The Window
+
+
+        // 题 2 ：返回结果是什么？是否产生了闭包？
+        var object = {
+            name:'My Object',
+            getNameFun:function(){
+                var that = this
+                return function(){
+                    return that.name
+                }
+            }
+        }
+        // console.log(object.getNameFun()());
+
+        // // 1 ===> 相当于   object.getNameFun()返回一个匿名函数 , ()--匿名函数来执行
+        var f = object.getNameFun()     // f 相当于一个函数，此时 this 指向 object,产生了闭包
+           
+        console.log(f());
+
+    </script>
+</body>
+</html>
