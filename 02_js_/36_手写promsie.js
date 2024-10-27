@@ -23,7 +23,7 @@ function fn(str) {
 }
  
 fn('张三')
-    .then((res) => { //then是成功执行的方法 返回的还是一个promise对象
+    .then((res) => { // then方法中，第一个是成功，第二个是失败。 返回的还是一个promise对象
         console.log(res);//打印张三  res是执行
         return fn('李四');
     },()=>{
